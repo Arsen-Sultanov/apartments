@@ -1,0 +1,49 @@
+.footer {
+    background-color: #f2f2f2;
+    padding: 50px 0 50px 0;
+}
+
+.containerScoped {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footerLocation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footerLocationIcon {
+    color: red;
+}
+
+.footerPhone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none; 
+    color: #000000;
+}
+
+.footerPhoneIcon {
+    color: red;
+}
+
+.footerSocial {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footerSocialIcon {
+    color: rgba(165, 165, 165, 0.5);
+    font-size: 25px;
+    margin-left: 25px;
+}
+
+.footerCopyright {
+    color: #A5A5A5
+}

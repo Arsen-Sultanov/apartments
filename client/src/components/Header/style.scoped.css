@@ -1,0 +1,82 @@
+.header {
+    z-index: 100;
+    width: 100%;
+    background-color: #ffffff;
+    transition: all 0.5s;
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.31);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.31);
+    box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.31);
+}
+
+.header_fixed {
+    position: fixed;
+}
+
+.hederContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.headerLogo {
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+}
+
+.headerLogo:link {
+    text-decoration: none;
+}
+
+.headerLogoBrandName {
+    display: inline-block;
+    color: #000;
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: 700;
+}
+
+.headerLogoBrandSlogan {
+    display: inline-block;
+    color: #c2c2c2;
+    font-size: 14px;
+    line-height: 1;
+    margin-top: -5px;
+}
+
+.headerNavList {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.headerNavListItem {
+    cursor: pointer;
+    margin-left: 28px;
+    padding: 0 20px 0;
+    color: #1972c6;
+}
+
+.headerNavListItem:hover {
+    color: #ed2d2d
+}
+
+.headerNavListItem:link {
+    text-decoration: none;
+}
+
+.itemActive {
+    color: #ed2d2d
+}
+
+.headerUserIcon {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    color: #1972c6;
+}
+
+.headerUserIcon:hover {
+    color: #ed2d2d
+}

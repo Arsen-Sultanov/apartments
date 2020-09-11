@@ -1,0 +1,31 @@
+.recomendedApartments {
+    display: flex;
+    flex-direction: column;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    align-items: center;
+    margin: 0 -20px 0 -20px;
+    overflow: hidden;
+}
+
+.recomendedApartmentsTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.recomendedApartmentsTitleRef {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.recomendedApartmentsList {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    margin-top: 70px;
+}
+
