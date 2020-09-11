@@ -4,14 +4,15 @@
   "author": "Sultanov Arsen (sultanov.a.i13@gmail.com)",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --config-name='client' --open --mode=development ",
-    "build": "webpack --config-name='client' --mode=production",
-    "serve-star": "webpack --config-name='server'",
-    "serve-build": "webpack --config-name='server' --mode=production",
+    "start": "webpack-dev-server --config-name=client --open --mode=development ",
+    "build": "webpack --config-name=client --mode=production",
+    "server-start": "webpack --config-name=server --mode=development --watch",
+    "server-build": "webpack --config-name=server --mode=production",
     "lint": "eslint . --ext .js --ignore-path .gitignore --fix"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
+    "@babel/plugin-transform-runtime": "^7.11.5",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "autoprefixer": "^9.8.6",
@@ -36,9 +37,12 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "bluebird": "^3.7.2",
     "bootstrap": "^4.5.2",
     "clsx": "^1.1.1",
+    "connect-mongo": "^3.2.0",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
     "mongoose": "^5.10.4",
     "nodemon-webpack-plugin": "^4.3.2",
     "passport": "^0.4.1",
