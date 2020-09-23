@@ -1,0 +1,30 @@
+.form {
+    width: 70%;
+}
+
+.formInput {
+    height: 70px !important;
+}
+
+
+.formButtonWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.formLinkSignIn {
+    color: #1972c6;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.formLinkSignIn:link {
+    text-decoration: none;
+}
+
+.formButton {
+    height: 60px;
+    width: 20%;
+    margin-left: 20px;
+}

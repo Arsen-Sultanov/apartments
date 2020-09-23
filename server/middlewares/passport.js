@@ -1,9 +1,9 @@
 import { Strategy as LocalStrategy } from 'passport-local';
 import { User } from '../models';
 
-export const localStrategy = new LocalStrategy(async (username, password, done) => {
+export const localStrategy = new LocalStrategy(async (email, password, done) => {
   try {
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ email });
     if (!user) {
       return done(null, false, { message: 'Incorrect username.' });
     }
@@ -15,6 +15,10 @@ export const localStrategy = new LocalStrategy(async (username, password, done) 
     return done(error);
   }
 });
+
+export const serializeUser = (user, done) => {
+  done(null, user.id);
+};
 
 export const deserializeUser = async (id, done) => {
   try {

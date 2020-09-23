@@ -9,7 +9,11 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
-  username: {
+  email: {
+    type: String,
+    required: true
+  },
+  phone: {
     type: String,
     required: true
   },
@@ -21,6 +25,11 @@ const userSchema = new Schema({
     type: String,
     enum: ['user', 'admin'],
     default: 'user',
+    required: true
+  },
+  createdOn: {
+    type: Date,
+    default: () => new Date(Date.now()).toUTCString(),
     required: true
   }
 });

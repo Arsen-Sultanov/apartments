@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { HiUser } from 'react-icons/hi';
 import clsx from 'clsx';
+import User from './User';
 
 import './style.scoped.css';
 
@@ -10,10 +10,13 @@ export default () => {
   const [scrolled, setSrolled] = useState(false);
 
   useEffect(() => {
-    window.onscroll = () => {
+    const scrollHandler = () => {
       pageYOffset > 5 ? setSrolled(true) : setSrolled(false);
     };
-    return () => { window.onscroll = null; };
+
+    window.addEventListener('scroll', scrollHandler);
+
+    return () => window.removeEventListener('scroll', scrollHandler);
   });
 
   return (
@@ -39,13 +42,13 @@ export default () => {
             <li>
               <NavLink exact to='/apartments' className="headerNavListItem" activeClassName='itemActive'>Квартиры</NavLink>
             </li>
-            <li >
+            <li>
               <NavLink to='/contacts' className="headerNavListItem" activeClassName='itemActive'>Контакты</NavLink>
             </li>
           </ul>
         </nav>
-        <div className="headerUser">
-          <HiUser className="headerUserIcon"/>
+        <div>
+          <User/>
         </div>
       </div>
     </header>

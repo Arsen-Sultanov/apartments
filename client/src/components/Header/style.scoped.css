@@ -10,6 +10,7 @@
 
 .header_fixed {
     position: fixed;
+    top:0;
 }
 
 .hederContainer {

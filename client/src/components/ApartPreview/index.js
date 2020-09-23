@@ -1,17 +1,17 @@
 import React from 'react';
 import './style.scoped.css';
-export default () => {
+export default ({ data: { _id, name, address, cost } }) => {
   return (
     <div className="appartsPreview">
       <div className="appartsPreviewImg">
       </div>
       <div className="appartsPreviewCost">
-        <label>Ꝑ1000</label>
+        <label>Ꝑ{cost}</label>
         <label className="appartsPreviewCostDay">/день</label>
       </div>
       <div className="appartsPreviewDesc">
-        <h3 className="appartsPreviewDescTitle">Новыйпорт</h3>
-        <label className="appartsPreviewDescSub">г.Москва ул.Ленина 100</label>
+        <h3 className="appartsPreviewDescTitle">{name}</h3>
+        <label className="appartsPreviewDescSub">{address}</label>
       </div>
     </div>
   );

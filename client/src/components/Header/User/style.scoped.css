@@ -1,0 +1,10 @@
+.headerUserIcon {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    color: #1972c6;
+}
+
+.headerUserIcon:hover {
+    color: #ed2d2d
+}

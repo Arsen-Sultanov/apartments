@@ -1,20 +1,28 @@
 /** This is a description of the foo function. */
 import express from 'express';
 import passport from 'passport';
+import fileUpload from 'express-fileupload';
 
-import { localStrategy, deserializeUser, session } from './middlewares';
+import { passportMiddlewares, session } from './middlewares';
+import router from './router';
 
 import { server } from '../config';
 
 const app = express();
 
-passport.use(localStrategy);
-passport.deserializeUser(deserializeUser);
+passport.use(passportMiddlewares.localStrategy);
+passport.serializeUser(passportMiddlewares.serializeUser);
+passport.deserializeUser(passportMiddlewares.deserializeUser);
 
 app
-  .use(express.urlencoded({ extended: true }))
+  .use(express.json())
+  .use(fileUpload())
   .use(passport.initialize())
-  .use(session);
+  .use(session)
+  .use('/api/v1', router)
+  .use((error, req, res) => {
+    return res.status(500).json({ error: error.toString() });
+  });
 
 
 app.listen(server.port, () => {

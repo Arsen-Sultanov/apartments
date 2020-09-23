@@ -1,0 +1,23 @@
+.searchForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90% !important;
+
+}
+
+.searchFormInput {
+    height: 70px !important;
+    width: 15% !important;
+    margin-right: 10px;
+}
+
+.searchFormInput:nth-child(1) {
+    width: 30% !important;
+}
+
+.searchFormButton {
+    height: 70px;
+    width: 15%;
+    margin: 0;
+}

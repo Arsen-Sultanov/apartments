@@ -1,6 +1,7 @@
 module.exports = {
   server: {
     port: 8000,
+    salt: '$2a$10$FiOm83RS.72Elo5Te.NX5uD54GT7dK3NTrUN3zjKajSxq2DdOmuQu',
     db: {
       baseUrl: 'mongodb://localhost',
       port: 27017,

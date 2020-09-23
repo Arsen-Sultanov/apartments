@@ -10,8 +10,7 @@ const Achiev = ({ isShow, endValue, sub }) => {
   const [value, setValue] = useState(0);
   useEffect(() => {
     const intervalId = setInterval(() => {
-      console.log(value === endValue);
-      if (!(value === endValue)) {
+      if (isShow && !(value === endValue)) {
         setValue(prev => prev + 1);
       }
     });
@@ -36,15 +35,19 @@ export default () => {
   const [isShow, setIsShow] = useState(false);
 
   useEffect(() => {
-    const ourAdvantagesYPosition = ourAdvantages.current.getBoundingClientRect().top;
+    const ourAdvantagesYPosition =
+      ourAdvantages.current.getBoundingClientRect().top - ourAdvantages.current.clientHeight;
 
-    window.onscroll = () => {
+    const scrollHandler = () => {
+      console.log(pageYOffset >= ourAdvantagesYPosition, pageYOffset, ourAdvantagesYPosition);
       if (pageYOffset >= ourAdvantagesYPosition) {
         setIsShow(true);
       }
     };
 
-    return () => { window.onscroll = null; };
+    window.addEventListener('scroll', scrollHandler);
+
+    return () => { window.removeEventListener('scroll', scrollHandler); };
   }, []);
 
 
