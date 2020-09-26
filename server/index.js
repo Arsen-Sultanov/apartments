@@ -1,9 +1,12 @@
-/** This is a description of the foo function. */
 import express from 'express';
 import passport from 'passport';
 import fileUpload from 'express-fileupload';
 
-import { passportMiddlewares, session } from './middlewares';
+import {
+  passportMiddlewares,
+  session
+} from './middlewares';
+
 import router from './router';
 
 import { server } from '../config';
@@ -26,5 +29,5 @@ app
 
 
 app.listen(server.port, () => {
-  console.log(`Server start on ${server.port} port`);
+  console.info(`Server start on ${server.port} port, http://localhost:8000`);
 });
