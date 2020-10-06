@@ -1,5 +1,3 @@
-
-import { json } from 'body-parser';
 import { Apartments } from '../models';
 
 const list = async (req, res, next) => {
@@ -9,16 +7,17 @@ const list = async (req, res, next) => {
     const sortField = req.query.sortfield || 'rating';
     const sortDir = req.query.sortdir === 'desc' ? -1 : 1;
 
-    const $and = [];
-    req.query.name && $and.push({ name: { $regex: new RegExp(req.query.name, 'i') } });
-    req.query.address && $and.push({ address: { $regex: new RegExp(req.query.address, 'i') } });
-    req.query.rooms && $and.push({ rooms: req.query.rooms });
-    req.query.floors && $and.push({ floors: req.query.floors });
-    req.query.type && $and.push({ type: req.query.type });
-    req.query.coststart && $and.push({ cost: { $gt: +req.query.coststart } });
-    req.query.costend && $and.push({ cost: { $lte: +req.query.costend } });
+    const $match = {};
+    req.query.name && ($match.name = { $regex: new RegExp(req.query.name, 'i') });
+    req.query.address && ($match.address = { $regex: new RegExp(req.query.address, 'i') });
+    req.query.rooms && ($match.rooms = req.query.rooms);
+    req.query.floors && ($match.floors = req.query.floors);
+    req.query.type && ($match.type = req.query.type);
+    req.query.coststart && ($match.cost = { $gt: +req.query.coststart });
+    req.query.costend && ($match.cost = { $lte: +req.query.costend });
 
     const page = [
+      { $match },
       { $skip: skip },
       { $limit: limit },
       {
@@ -28,32 +27,20 @@ const list = async (req, res, next) => {
       }
     ];
 
-    $and.length && page.unshift({ $match: { $and } });
-
-    const qery = [
-      {
-        $facet: {
-          page,
-          count: [
-            {
-              $count: 'count'
-            }
-          ]
-        }
-      }
+    const count = [
+      { $match },
+      { $count: 'count' }
     ];
 
+    const qery = [
+      { $facet: { page, count } }
+    ];
 
     const qeryResult = await Apartments.aggregate(qery);
 
-    console.log($and, JSON.stringify(qery));
-
-    const countedPages = Math.ceil(qeryResult[0].count[0].count / limit);
-    console.log(qeryResult);
-
     res.status(200).send({
       page: qeryResult[0].page,
-      countedPages
+      totalItemsCount: qeryResult[0].count[0].count
     });
   } catch (error) {
     console.log(error);

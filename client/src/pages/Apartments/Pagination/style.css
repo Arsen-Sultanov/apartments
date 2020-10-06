@@ -1,0 +1,44 @@
+.itemClass {
+    width: 50px;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: center;
+}
+
+.activeClass {
+    background-color:#d20000;
+    color: #ffffff;
+    display: block;
+    text-align: center;
+}
+.activeClass a{
+    color: #ffffff;
+}
+.activeClass a:hover {
+    text-decoration: none;
+    background-color:#d20000;
+    color: #ffffff;
+}
+
+.linkClass {
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
+    color: #1972c6;
+    transition: 0.3s all ease;
+}
+.linkClass:hover {
+    color: #ed2d2d;
+}
+
+.linkClassControllButton {
+    background-color: #ed2d2d;
+    color: #ffffff;
+    transition: 0.3s all ease;
+    display: block;
+    text-align: center;
+}
+.linkClassControllButton:hover {
+    background-color:#d20000;
+    color: #ffffff;
+}

@@ -1,4 +1,11 @@
-import React, { useEffect, useState, useRef, useReducer } from 'react';
+import
+React,
+{
+  useEffect,
+  useState,
+  useRef,
+  useReducer
+} from 'react';
 
 import './style.scoped.css';
 

@@ -1,26 +1,15 @@
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import clsx from 'clsx';
+import { HiOutlineSearch as SearchIcon } from 'react-icons/hi';
 import User from './User';
+import store from '../../store';
 
 import './style.scoped.css';
 
 export default () => {
-  const [scrolled, setSrolled] = useState(false);
-
-  useEffect(() => {
-    const scrollHandler = () => {
-      pageYOffset > 5 ? setSrolled(true) : setSrolled(false);
-    };
-
-    window.addEventListener('scroll', scrollHandler);
-
-    return () => window.removeEventListener('scroll', scrollHandler);
-  });
-
   return (
-    <header className={clsx({ header: true, header_fixed: scrolled })}>
+    <header className="header">
       <div className="container hederContainer">
         <Link className="headerLogo" to='/'>
           <h1 className="headerLogoBrandName">КВАРТИРЫ</h1>
@@ -29,26 +18,55 @@ export default () => {
         <nav className="headerNav">
           <ul className="headerNavList">
             <li>
-              <NavLink exact to='/' className="headerNavListItem" activeClassName='itemActive'>
+              <NavLink
+                to='/'
+                className="headerNavListItem"
+                activeClassName='itemActive'
+              >
                 Главная
               </NavLink>
             </li>
             <li >
-              <NavLink exact to='/about' className="headerNavListItem" activeClassName='itemActive'>О нас</NavLink>
+              <NavLink
+                to='/about'
+                className="headerNavListItem"
+                activeClassName='itemActive'
+              >
+                О нас
+              </NavLink>
             </li>
             <li>
-              <NavLink exact to='/services' className="headerNavListItem" activeClassName='itemActive'>Услуги</NavLink>
+              <NavLink
+                to='/services'
+                className="headerNavListItem"
+                activeClassName='itemActive'
+              >
+                Услуги
+              </NavLink>
             </li>
             <li>
-              <NavLink exact to='/apartments' className="headerNavListItem" activeClassName='itemActive'>Квартиры</NavLink>
+              <NavLink
+                to='/apartments'
+                className="headerNavListItem"
+                activeClassName='itemActive'
+              >
+                Квартиры
+              </NavLink>
             </li>
             <li>
-              <NavLink to='/contacts' className="headerNavListItem" activeClassName='itemActive'>Контакты</NavLink>
+              <NavLink
+                to='/contacts'
+                className="headerNavListItem"
+                activeClassName='itemActive'
+              >
+                Контакты
+              </NavLink>
             </li>
           </ul>
         </nav>
-        <div>
+        <div className="iconWrap">
           <User/>
+          <SearchIcon className="iconSearch" onClick={() => store.setIsSideBarOpen()}/>
         </div>
       </div>
     </header>

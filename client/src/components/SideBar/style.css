@@ -1,0 +1,21 @@
+.sideBar {
+    z-index: 99;
+    width: 300px;
+    height: calc(100vh - 65px);
+    transition: all 0.5s;
+    position: fixed;
+    right: -300px;
+    top:65px;
+    background-color: #ffffff;
+    -webkit-box-shadow: -5px 3px 15px -1px rgba(0,0,0,0.31);
+    -moz-box-shadow: -5px 3px 15px -1px rgba(0,0,0,0.31);
+    box-shadow: -5px 3px 15px -1px rgba(0,0,0,0.31);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.sideBarOpen {
+    right: 0;
+
+}

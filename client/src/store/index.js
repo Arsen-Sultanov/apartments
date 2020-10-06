@@ -2,7 +2,11 @@ import { observable } from 'mobx';
 
 export default observable({
   isSignIn: false,
-  setIsSignIn: function(sign) {
+  isSideBarOpen: false,
+  setIsSignIn(sign) {
     this.isSignIn = sign;
+  },
+  setIsSideBarOpen() {
+    this.isSideBarOpen = !this.isSideBarOpen;
   }
 });

@@ -19,7 +19,6 @@ module.exports = {
     'react'
   ],
   rules: {
-
     'react/jsx-uses-react': 'error',
     'react/jsx-uses-vars': 'error',
     semi: [2, 'always'],
@@ -48,6 +47,7 @@ module.exports = {
     'key-spacing': ['error', { beforeColon: false }],
     'function-paren-newline': ['error', 'never'],
     'space-before-blocks': 'error',
-    'react/display-name': 0
+    'react/display-name': 0,
+    'no-useless-catch': 'off'
   }
 };

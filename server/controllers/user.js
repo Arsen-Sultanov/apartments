@@ -15,6 +15,8 @@ const add = async (req, res, next) => {
       ]
     });
 
+    console.log(findedUser);
+
     if (findedUser.length) {
       res
         .status(409)

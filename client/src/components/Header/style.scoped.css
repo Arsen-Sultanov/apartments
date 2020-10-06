@@ -1,16 +1,12 @@
 .header {
-    z-index: 100;
+    position: fixed;
+    top:0;
     width: 100%;
+    z-index: 100;
     background-color: #ffffff;
-    transition: all 0.5s;
     -webkit-box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.31);
     -moz-box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.31);
     box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.31);
-}
-
-.header_fixed {
-    position: fixed;
-    top:0;
 }
 
 .hederContainer {
@@ -71,13 +67,21 @@
     color: #ed2d2d
 }
 
-.headerUserIcon {
+.iconWrap {
+    width: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.iconSearch {
     cursor: pointer;
     width: 20px;
     height: 20px;
     color: #1972c6;
 }
 
-.headerUserIcon:hover {
+.iconSearch:hover {
     color: #ed2d2d
 }
+
